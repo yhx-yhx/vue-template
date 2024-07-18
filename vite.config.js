@@ -83,6 +83,18 @@ export default defineConfig({
     //   // modernPolyfills: ["es.promise.finally"]
     // })
   ],
+  // server: {
+  //   proxy: {
+  //     '/svc': {
+  //       target: 'http://127.0.0.1:18080/',
+  //       rewrite: (path) => path.replace(/^\/svc/, '')
+  //     },
+  //     '/download': {
+  //       target: 'http://127.0.0.1:32780/download',
+  //       rewrite: (path) => path.replace(/^\/download/, '')
+  //     }
+  //   }
+  // },
   build: {
     rollupOptions: {
       output: {
