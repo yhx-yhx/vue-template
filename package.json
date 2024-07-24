@@ -20,11 +20,15 @@
     "preview": "vite preview",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "commit": "git-cz"
+    "commit": "git cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -w -r 0",
+    "changelogbefore": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "changelogall": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
   },
   "dependencies": {
     "@iconify/tailwind": "^1.1.1",
     "axios": "^1.7.2",
+    "conventional-changelog-cli": "^5.0.0",
     "element-plus": "^2.7.7",
     "git-cz": "^4.9.0",
     "pinia": "^2.1.7",
@@ -40,6 +44,8 @@
     "@vue/eslint-config-prettier": "^9.0.0",
     "autoprefixer": "^10.4.19",
     "code-inspector-plugin": "^0.14.2",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
     "cz-git": "^1.9.3",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
@@ -51,5 +57,10 @@
     "unplugin-vue-components": "^0.27.3",
     "vite": "^5.3.1",
     "vite-plugin-vue-devtools": "^7.3.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
