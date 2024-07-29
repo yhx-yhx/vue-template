@@ -3,12 +3,13 @@ import useRequest from '@/hooks/request.js'
 const { request } = useRequest()
 
 /**
- * @description: 创建文章
+ * @description: 获取测试数据
  * @return {*}
  */
-export function createArticle(data) {
+export function getTestData(data) {
   return request({
-    url: '/article',
+    baseURL: '/',
+    url: '/api/getTestData',
     method: 'POST',
     data
   })

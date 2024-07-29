@@ -2,14 +2,7 @@
 </script>
 
 <template>
-  <div class="conatainer">
-    <router-view></router-view>
-  </div>
+  <router-view></router-view>
 </template>
 
-<style scoped lang="scss">
-.conatainer {
-  width: 100%;
-  height: 100%;
-}
-</style>
+<style scoped lang="scss"></style>

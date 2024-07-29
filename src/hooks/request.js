@@ -1,5 +1,5 @@
 import router from '@/router'
-import { useUserStore } from '@/stores/user'
+// import { useUserStore } from '@/stores/user'
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
 // import { useAuthStore } from '@/stores/auth'
@@ -39,7 +39,7 @@ export default function useRequest() {
     },
     (error) => {
       if (error && error.response && error.response.status === 401) {
-        useUserStore().token = null
+        // useUserStore().token = null
         localStorage.removeItem('token')
         router.push('/login')
       } else {
