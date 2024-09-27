@@ -11,12 +11,12 @@ export default function useRequest() {
 
   request.interceptors.request.use(
     async (config) => {
-      const token = localStorage.getItem('token')
-      if (!token) {
-        router.push('/login')
-      } else {
-        config.headers.authorization = `Bearer ${token}`
-      }
+      //   const token = localStorage.getItem('token')
+      //   if (!token) {
+      //     router.push('/login')
+      //   } else {
+      //     config.headers.authorization = `Bearer ${token}`
+      //   }
       return config
     },
     (error) => {
@@ -50,36 +50,5 @@ export default function useRequest() {
     }
   )
 
-  /**
-   * @description: 用于下载文件
-   * @param {String} url
-   * @param {*} title
-   * @return {*}
-   */
-  function download(url, title = '文件名字') {
-    const a = document.createElement('a')
-    a.href = url // 下载地址
-    a.download = title // 所下载文件名字
-    document.body.appendChild(a)
-    a.style.display = 'none'
-    a.click()
-    document.body.removeChild(a)
-  }
-
-  /**
-   * @description: 读取文件内容
-   * @param {*} path
-   * @return {*}
-   */
-  async function readFile(path) {
-    try {
-      const { data } = await axios.get(path)
-      return data
-    } catch (error) {
-      console.warn(error)
-      ElMessage.error(error.message)
-    }
-  }
-
-  return { request, download, readFile }
+  return request
 }

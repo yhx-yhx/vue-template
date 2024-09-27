@@ -1,5 +1,5 @@
 <script setup>
-import { getTestData } from '@/api/module';
+import { getTestData } from '@/api';
 
 // 获取数据
 const data = ref(null)
