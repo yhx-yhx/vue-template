@@ -54,6 +54,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
     "husky": "^8.0.0",
+    "lint-staged": "^15.2.10",
     "mockjs": "^1.1.0",
     "postcss": "^8.4.39",
     "prettier": "^3.2.5",
@@ -73,5 +74,9 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,vue}": "npx eslint",
+    "src/**/*.{css,scss,html,vue}": "npx stylelint --allow-empty-input"
   }
 }
