@@ -21,8 +21,6 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "commit": "git cz",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "changelog:update": "conventional-changelog -p angular -i CHANGELOG.md -s 2",
     "release": "standard-version",
     "release:major": "standard-version -- --release-as major",
     "release:minor": "standard-version -- --release-as minor",
