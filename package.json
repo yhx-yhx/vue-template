@@ -26,7 +26,8 @@
     "release": "standard-version",
     "release:major": "standard-version -- --release-as major",
     "release:minor": "standard-version -- --release-as minor",
-    "release:patch": "standard-version -- --release-as patch"
+    "release:patch": "standard-version -- --release-as patch",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@iconify/tailwind": "^1.1.1",
@@ -41,6 +42,8 @@
     "vue-router": "^4.3.3"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
     "@rushstack/eslint-patch": "^1.8.0",
     "@vitejs/plugin-vue": "^5.0.5",
     "@vitejs/plugin-vue-jsx": "^4.0.0",
@@ -52,10 +55,14 @@
     "cz-git": "^1.9.3",
     "eslint": "^8.57.0",
     "eslint-plugin-vue": "^9.23.0",
+    "husky": "^8.0.0",
     "mockjs": "^1.1.0",
     "postcss": "^8.4.39",
     "prettier": "^3.2.5",
     "standard-version": "^9.5.0",
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-config-standard-scss": "^13.1.0",
     "tailwindcss": "^3.4.6",
     "unplugin-auto-import": "^0.18.0",
     "unplugin-icons": "^0.19.0",

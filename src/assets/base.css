@@ -24,7 +24,7 @@ body {
     'Helvetica Neue',
     sans-serif;
   font-size: 16px;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizelegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -34,4 +34,9 @@ body {
   flex-direction: column;
   min-height: 100vh;
   width: 100%;
+}
+
+/* src\css\index.css */
+a {
+  color: red;
 }
