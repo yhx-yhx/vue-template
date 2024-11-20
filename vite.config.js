@@ -3,6 +3,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import { codeInspectorPlugin } from 'code-inspector-plugin'
 import path from 'node:path'
 import { fileURLToPath, URL } from 'node:url'
+import { visualizer } from 'rollup-plugin-visualizer'
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
@@ -77,7 +78,8 @@ export default defineConfig(({ command, mode }) => {
       Inspect(),
       codeInspectorPlugin({
         bundler: 'vite' // https://github.com/zh-lx/code-inspector/blob/main/docs/README-ZH.md
-      })
+      }),
+      visualizer({ open: true })
       // legacy({
       //   // browserslist https://browsersl.ist/
       //   targets: [
@@ -110,8 +112,11 @@ export default defineConfig(({ command, mode }) => {
         output: {
           // 最小化拆分包
           manualChunks(id) {
+            // if (id.includes('node_modules')) {
+            //   return id.toString().split('node_modules/')[1].split('/')[0].toString()
+            // }
             if (id.includes('node_modules')) {
-              return id.toString().split('node_modules/')[1].split('/')[0].toString()
+              return 'vendor'
             }
           },
           // 用于从入口点创建的块的打包输出格式[name]表示文件名,[hash]表示该文件内容hash值
