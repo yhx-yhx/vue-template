@@ -1,5 +1,7 @@
 import Vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import vitePluginAutoVersion from '@yhx392/vite-plugin-auto-version'
+import vitePluginZipDist from '@yhx392/vite-plugin-zip-dist'
 import { codeInspectorPlugin } from 'code-inspector-plugin'
 import path from 'node:path'
 import { fileURLToPath, URL } from 'node:url'
@@ -79,7 +81,9 @@ export default defineConfig(({ command, mode }) => {
       codeInspectorPlugin({
         bundler: 'vite' // https://github.com/zh-lx/code-inspector/blob/main/docs/README-ZH.md
       }),
-      visualizer({ open: true })
+      visualizer(),
+      vitePluginZipDist(),
+      vitePluginAutoVersion()
       // legacy({
       //   // browserslist https://browsersl.ist/
       //   targets: [
