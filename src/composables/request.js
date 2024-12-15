@@ -1,7 +1,7 @@
-import router from '@/router'
 // import { useUserStore } from '@/stores/user'
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
+import router from '@/router'
 // import { useAuthStore } from '@/stores/auth'
 
 export default function useRequest() {
@@ -10,18 +10,15 @@ export default function useRequest() {
   })
 
   request.interceptors.request.use(
-    async (config) => {
+    async (config) =>
       //   const token = localStorage.getItem('token')
       //   if (!token) {
       //     router.push('/login')
       //   } else {
       //     config.headers.authorization = `Bearer ${token}`
       //   }
-      return config
-    },
-    (error) => {
-      return Promise.reject(error)
-    }
+      config,
+    (error) => Promise.reject(error)
   )
 
   request.interceptors.response.use(
@@ -30,10 +27,9 @@ export default function useRequest() {
       if (response.status >= 200 && response.status < 400) {
         if (response.data.success) {
           return response.data
-        } else {
-          ElMessage.error(response.data.message)
-          return Promise.reject(response)
         }
+        ElMessage.error(response.data.message)
+        return Promise.reject(response)
       }
       return Promise.reject(response)
     },

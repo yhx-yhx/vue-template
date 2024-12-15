@@ -1,4 +1,4 @@
-import useRequest from '@/hooks/request.js'
+import useRequest from '@/composables/request.js'
 
 const { request } = useRequest()
 

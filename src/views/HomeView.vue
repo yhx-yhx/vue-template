@@ -1,22 +1,19 @@
 <script setup>
-import { getTestData } from '@/api';
+import { getTestData } from '@/api'
+import '@/composables/config/config.demo.js'
 
 // 获取数据
 const data = ref(null)
 async function getData() {
-  const res = await getTestData();
+  const res = await getTestData()
   data.value = res.data
 }
 getData()
-
-
 </script>
 
 <template>
   <main class="text-center flex flex-col gap-20 p-4">
-    <h1 class="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <h1 class="text-3xl font-bold underline">Hello world!</h1>
     <div class="link" @click="$router.push('/about')">about</div>
     <!-- 获取测试mock数据 -->
     <div>{{ data?.content }}</div>
