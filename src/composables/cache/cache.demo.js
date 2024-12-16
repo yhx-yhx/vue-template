@@ -1,18 +1,18 @@
-import { useConfig } from '.'
+import { useCache } from '.'
 
-const config = useConfig()
+const cache = useCache()
 ;(async () => {
   try {
     console.log('config.getConfig')
-    const test1Data = await config.getConfig('test1')
+    const test1Data = await cache.get('/configs/test1.json')
     console.log(test1Data, 'test1Data')
 
-    const test1Data1 = await config.getConfig('test1')
+    const test1Data1 = await cache.get('/configs/test1.json')
     console.log(test1Data1, 'test1Data1')
-    const test1Data2 = await config.getConfig('test1')
+    const test1Data2 = await cache.get('/configs/test1.json')
     console.log(test1Data2, 'test1Data2')
 
-    const test2Data0 = await config.getConfig('test2')
+    const test2Data0 = await cache.get('/configs/test2.json')
     console.log(test2Data0, 'test2Data0')
   } catch (error) {
     console.error('配置加载失败:', error)

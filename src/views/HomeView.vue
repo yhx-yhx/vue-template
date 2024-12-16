@@ -1,6 +1,6 @@
 <script setup>
 import { getTestData } from '@/api'
-import '@/composables/config/config.demo.js'
+import '@/composables/cache/cache.demo.js'
 
 // 获取数据
 const data = ref(null)

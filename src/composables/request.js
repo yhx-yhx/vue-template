@@ -1,7 +1,7 @@
 // import { useUserStore } from '@/stores/user'
+import router from '@/router'
 import axios from 'axios'
 import { ElMessage } from 'element-plus'
-import router from '@/router'
 // import { useAuthStore } from '@/stores/auth'
 
 export default function useRequest() {
@@ -39,7 +39,7 @@ export default function useRequest() {
         localStorage.removeItem('token')
         router.push('/login')
       } else {
-        ElMessage.error(error.response.data.message || '后台服务异常，请稍后再试')
+        ElMessage.error(error.response.data.message || $constant.global.HTTP_ERROR_MSG)
       }
       console.log(error)
       return Promise.reject(error)
