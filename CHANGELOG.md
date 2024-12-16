@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/yhx-yhx/vue-template/compare/v0.0.5...v0.0.6) (2024-12-16)
+
+### Features
+
+- 添加全局常量 ([c23ba5a](https://github.com/yhx-yhx/vue-template/commit/c23ba5a076783bee0fa8218f2ea37d692b639e55))
+- 修改 环境变量（VITE_APP_TITLE） ([222d285](https://github.com/yhx-yhx/vue-template/commit/222d28596409462b64856fb023572b247c124354))
+- 优化缓存管理（原配置管理器） ([d6615e0](https://github.com/yhx-yhx/vue-template/commit/d6615e0e74e1164f301dca61d344658051567392))
+
 ### [0.0.5](https://github.com/yhx-yhx/vue-template/compare/v0.0.4...v0.0.5) (2024-12-15)
 
 ### Features
