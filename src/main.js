@@ -5,9 +5,12 @@ import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 
 import App from './App.vue'
+import constantPlugin from './plugins/constant'
 import router from './router'
-
 const app = createApp(App)
+
+// plugins
+app.use(constantPlugin) // 全局常量
 
 app.use(createPinia())
 app.use(router)
