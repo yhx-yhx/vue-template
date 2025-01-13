@@ -1,6 +1,8 @@
 <script setup>
 import { getTestData } from '@/api/module'
 
+import { getCache } from '@/composables/cache/useMemoize'
+
 // 获取数据
 const data = ref(null)
 async function getData() {
@@ -8,6 +10,15 @@ async function getData() {
   data.value = res.data
 }
 getData()
+
+// 获取缓存数据
+;(async () => {
+  const test1 = await getCache('/configs/test1.json')
+  console.log(test1, 'test1')
+
+  const test2 = await getCache('/configs/test1.json')
+  console.log(test2, 'test2')
+})()
 </script>
 
 <template>
