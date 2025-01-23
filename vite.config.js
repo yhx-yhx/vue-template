@@ -1,3 +1,4 @@
+import viteImagemin from '@vheemstra/vite-plugin-imagemin'
 import Vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vitePluginAutoVersion from '@yhx392/vite-plugin-auto-version'
@@ -15,6 +16,12 @@ import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
 import { viteMockServe } from 'vite-plugin-mock'
 import vueDevTools from 'vite-plugin-vue-devtools'
+
+// The minifiers you want to use:
+import imageminMozjpeg from 'imagemin-mozjpeg'
+import imageminPng from 'imagemin-pngquant'
+import imageminSvg from 'imagemin-svgo'
+import imageminWebp from 'imagemin-webp'
 
 const pathSrc = fileURLToPath(new URL('./src', import.meta.url))
 
@@ -83,7 +90,21 @@ export default defineConfig(() => {
       }),
       visualizer(),
       vitePluginZipDist(),
-      vitePluginAutoVersion()
+      vitePluginAutoVersion(),
+      viteImagemin({
+        // 图片压缩
+        plugins: {
+          jpg: imageminMozjpeg(),
+          png: imageminPng(),
+          svg: imageminSvg()
+        },
+        makeWebp: {
+          plugins: {
+            jpg: imageminWebp(),
+            png: imageminWebp()
+          }
+        }
+      })
       // legacy({
       //   // browserslist https://browsersl.ist/
       //   targets: [
@@ -111,6 +132,16 @@ export default defineConfig(() => {
     //     }
     //   }
     // },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // 使用 element-plus 主题配置
+          // https://element-plus.org/zh-CN/guide/theming.html
+          // additionalData: `@use "@/assets/ele.scss" as *;`,
+          api: 'modern-compiler'
+        }
+      }
+    },
     build: {
       minify: 'terser',
       rollupOptions: {
