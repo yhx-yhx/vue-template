@@ -112,6 +112,7 @@ export default defineConfig(() => {
     //   }
     // },
     build: {
+      minify: 'terser',
       rollupOptions: {
         output: {
           // 最小化拆分包
