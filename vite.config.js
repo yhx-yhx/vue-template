@@ -138,6 +138,12 @@ export default defineConfig(() => {
             return `js/${fileName}/[name]-[hash].js`
           }
         }
+      },
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          pure_funcs: ['console.log'] // 删除所有 console.log 语句
+        }
       }
     }
   }
