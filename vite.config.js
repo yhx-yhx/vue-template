@@ -1,4 +1,3 @@
-import viteImagemin from '@vheemstra/vite-plugin-imagemin'
 import Vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import vitePluginAutoVersion from '@yhx392/vite-plugin-auto-version'
@@ -18,10 +17,10 @@ import { viteMockServe } from 'vite-plugin-mock'
 import vueDevTools from 'vite-plugin-vue-devtools'
 
 // The minifiers you want to use:
-import imageminMozjpeg from 'imagemin-mozjpeg'
-import imageminPng from 'imagemin-pngquant'
-import imageminSvg from 'imagemin-svgo'
-import imageminWebp from 'imagemin-webp'
+// import imageminMozjpeg from 'imagemin-mozjpeg'
+// import imageminPng from 'imagemin-pngquant'
+// import imageminSvg from 'imagemin-svgo'
+// import imageminWebp from 'imagemin-webp'
 
 const pathSrc = fileURLToPath(new URL('./src', import.meta.url))
 
@@ -90,21 +89,21 @@ export default defineConfig(() => {
       }),
       visualizer(),
       vitePluginZipDist(),
-      vitePluginAutoVersion(),
-      viteImagemin({
-        // 图片压缩
-        plugins: {
-          jpg: imageminMozjpeg(),
-          png: imageminPng(),
-          svg: imageminSvg()
-        },
-        makeWebp: {
-          plugins: {
-            jpg: imageminWebp(),
-            png: imageminWebp()
-          }
-        }
-      })
+      vitePluginAutoVersion()
+      // viteImagemin({
+      //   // 图片压缩
+      //   plugins: {
+      //     jpg: imageminMozjpeg(),
+      //     png: imageminPng(),
+      //     svg: imageminSvg()
+      //   },
+      //   makeWebp: {
+      //     plugins: {
+      //       jpg: imageminWebp(),
+      //       png: imageminWebp()
+      //     }
+      //   }
+      // })
       // legacy({
       //   // browserslist https://browsersl.ist/
       //   targets: [
