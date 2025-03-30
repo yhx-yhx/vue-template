@@ -62,7 +62,11 @@ export default defineConfig(() => {
           })
         ],
 
-        dts: path.resolve(pathSrc, 'auto-imports.d.ts')
+        dts: path.resolve(pathSrc, 'auto-imports.d.ts'),
+        eslintrc: {
+          enabled: true, // 启用 ESLint 配置生成
+          filepath: './.eslintrc-auto-import.json' // 指定生成的文件路径
+        }
       }),
 
       Components({
